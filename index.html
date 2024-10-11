@@ -5,18 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        input#name:invalid:focus,
-        input#email:invalid:focus,
-        input#password:invalid:focus {
-            border: 1px solid red;
-        }
-    </style>
 </head>
 <body class="bg-gray-100 flex flex-col justify-center items-center h-full">
 
     <form id="user-form" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-sm">
-        <h2 class="text-xl font-bold mb-4">Registraion Form</h2>
+        <h2 class="text-xl font-bold mb-4">Form Controls</h2>
 
         <div class="mb-4">
             <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
@@ -52,10 +45,22 @@
         </div>
     </form>
 
-    <div class="relative bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx:auto sm:rounded-lg sm:px-100">
+    <div class="relative bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx:auto sm:rounded-lg sm:px-100 w-full max-w-4xl">
         <div class="mx-auto">
-            <h2 class="text-3xl text-center font-bold leading-tight">Entries</h2>
-            <div class="divide-y divide-gray-300/50" id="user-entries"></div>
+            <h2 class="text-3xl text-center font-bold leading-tight mb-6">Entries</h2>
+            <table class="table-auto w-full">
+                <thead>
+                    <tr>
+                        <th class="px-4 py-2">Name</th>
+                        <th class="px-4 py-2">Email</th>
+                        <th class="px-4 py-2">Password</th>
+                        <th class="px-4 py-2">Dob</th>
+                        <th class="px-4 py-2">Accepted terms?</th>
+                    </tr>
+                </thead>
+                <tbody id="user-entries">
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -74,8 +79,7 @@
                 element.setCustomValidity('');
             }
         }
-
-</script>
+    </script>
 
     <script src="index.js"></script>
 </body>
