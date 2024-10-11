@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        input#name:invalid:focus,
+        input#email:invalid:focus,
+        input#password:invalid:focus {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col justify-center items-center h-full">
+
+    <form id="user-form" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-sm">
+        <h2 class="text-xl font-bold mb-4">Registraion Form</h2>
+
+        <div class="mb-4">
+            <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
+            <input required type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter your name">
+        </div>
+
+        <div class="mb-4">
+            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+            <input required type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter your email">
+        </div>
+
+        <div class="mb-4">
+            <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+            <input type="password" id="password" name="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter your password">
+        </div>
+
+        <div class="mb-4">
+            <label for="dob" class="block text-gray-700 text-sm font-bold mb-2">Date of Birth</label>
+            <input required type="date" id="dob" name="dob" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold">
+                <input type="checkbox" id="acceptTerms" name="acceptTerms" class="mr-2 leading-tight">
+                <span class="text-sm">Accept Terms & Conditions</span>
+            </label>
+        </div>
+
+        <div class="flex items-center justify-between">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Submit
+            </button>
+        </div>
+    </form>
+
+    <div class="relative bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx:auto sm:rounded-lg sm:px-100">
+        <div class="mx-auto">
+            <h2 class="text-3xl text-center font-bold leading-tight">Entries</h2>
+            <div class="divide-y divide-gray-300/50" id="user-entries"></div>
+        </div>
+    </div>
+
+    <script>
+        const email = document.getElementById('email');
+        email.addEventListener('input', () => validate(email));
+
+        const submit = document.getElementById('submit');
+        submit.addEventListener('click', () => validate(email));
+
+        function validate(element){
+            if(element.validity.typeMismatch){
+                element.setCustomValidity("The email is not in the correct format");
+                element.reportValidity();
+            }else{
+                element.setCustomValidity('');
+            }
+        }
+
+</script>
+
+    <script src="index.js"></script>
+</body>
+</html>
